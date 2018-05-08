@@ -1,9 +1,6 @@
 // Code your solution in this file!
 const returnFirstTwoDrivers = function(array){
-	let newArray = [];
-	newArray.push(array[0]);
-	newArray.push(array[1]);
-	return newArray;
+	return array.slice(0,2);
 }
 
 const returnLastTwoDrivers = function(array){
@@ -14,9 +11,7 @@ const returnLastTwoDrivers = function(array){
 	return newArray;
 }
 
-function selectingDrivers(returnFirstTwoDrivers,returnLastTwoDrivers){
-	return [returnFirstTwoDrivers, returnLastTwoDrivers];
-};
+const selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers];
 
 function fareDoubler(fare){
  	return fare * 2;
@@ -27,11 +22,15 @@ function fareDoubler(fare){
  }
 
  function createFareMultiplier(value){
- 	return function(value){
- 		return value * value;
+ 	return function(fare){
+ 		return value * fare;
  	}
  }
 
-function selectDifferentDrivers(arrayOfDrivers, function){
- 	return function(arrayOfDrivers);
+function selectDifferentDrivers(arrayOfDrivers, fn){
+ 	if (fn === returnFirstTwoDrivers){
+ 		return returnFirstTwoDrivers(arrayOfDrivers);
+ 	} else {
+ 		return returnLastTwoDrivers(arrayOfDrivers);
+ 	}
  }
